@@ -7,13 +7,13 @@ android {
     buildToolsVersion "25.0.2"
 
     group = 'at.allaboutapps.a3utilities' // Change this to match your package name
-    version = '1.0.0' // Change this to match your version number
+    version = '1.0.2' // Change this to match your version number
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -35,9 +35,9 @@ bintray {
         name = 'at.allaboutapps.a3utilities'
 
         version {
-            name = '1.0.1'
+            name = '1.0.2'
             desc = 'Readme update'
-            vcsTag = '1.0.1'
+            vcsTag = '1.0.2'
         }
 
         licenses = ['MIT']
