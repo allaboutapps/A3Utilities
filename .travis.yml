@@ -2,39 +2,38 @@ language: android
 jdk: oraclejdk8
 android:
   components:
-    # Uncomment the lines below if you want to
-    # use the latest revision of Android SDK Tools
-    # - tools
-    # - platform-tools
-
-    # The BuildTools version used by your project
-    - build-tools-25.0.2
-
-    # The SDK version used to compile your project
-    - android-25
-
-    # Additional components
-    - extra-google-google_play_services
-    - extra-google-m2repository
-    - extra-android-m2repository
+  - build-tools-25.0.2
+  - android-25
+  - extra-google-google_play_services
+  - extra-google-m2repository
+  - extra-android-m2repository
 install:
-  - echo y | android update sdk -u -a -t tools
-  - echo y | android update sdk -u -a -t platform-tools
-  - echo y | android update sdk -u -a -t build-tools-25.0.2
-  - echo y | android update sdk -u -a -t android-25
-  - echo y | android update sdk -u -a -t extra-google-m2repository
-  - echo y | android update sdk -u -a -t extra-android-m2repository
+- echo y | android update sdk -u -a -t tools
+- echo y | android update sdk -u -a -t platform-tools
+- echo y | android update sdk -u -a -t build-tools-25.0.2
+- echo y | android update sdk -u -a -t android-25
+- echo y | android update sdk -u -a -t extra-google-m2repository
+- echo y | android update sdk -u -a -t extra-android-m2repository
 before_install:
-  - mkdir "$ANDROID_HOME/licenses" || true
-  - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
-  - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+- mkdir "$ANDROID_HOME/licenses" || true
+- echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+- echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
 script:
-   - ./gradlew build
+- "./gradlew build"
 before_cache:
-  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - $HOME/.android/build-cache
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - "$HOME/.android/build-cache"
+env:
+  global:
+    secure: jFkT7F+dOxiBx+cyzUK4VuAiQY2u9zvKH58M3iTqMWjqZXGGNgG4pYuyQIW7UEuQ1L/mmLPBjQqNd4ZqKbRULJQmIJ8i8zVA9Z/O0lyOTmpqt/N4D1MGA/v7htHsR0zqUhxFtp3OPGSlZFAaDfMYb4GgsrYELRCSXeTMR2Dtointjkv+x9PmR8d0SnsujUHH+GCY31+dVF+ZL4fAECj0J2pDZ8XJ6MSxu69mMX1aw2vPREFeNmojdjG6D5KbFPhn4Hh9IuI+dyv9u1+utC4EaoHQxkwHQWr/7nT3q9xyR7PHmtAQulwdasy6J8kjlvUctlnIdWXYgrA6S/cc5GFAB8nfhtOheqbu2hVrnzAx3JpM4lruTQFZChnlqyqSN+nymmRZvhcIjl6IzsxkBznAC0hlyF13kbmgUQDiiBg88nFD3N0Ye2t7ZhsllyluzyLSMf0iKE2c+eJLvl6UxrogCbVz9CvZ9QQvyEmh5JbkdamZmU/IOwp7jH0GuOrau1ElEL0HWZ18ckblESqcLwOK/JSWsy6WHSM408Or1Py0Yj4kpBXyIGsWAXLj+q1bJUp2Bq27GzXH9jDUCmNhx9kNAOCUQr8uOMHeSEu/a7dbNv0wsVfNxX8yJ8p85EcdVOQlMb7duE8K3Iiq1XYp6QciJtQx7phMr0koZf4+d4Wt20o=
+deploy:
+  skip_cleanup: true
+  provider: script
+  script: "./gradlew bintrayUpload"
+  on:
+    tags: true
