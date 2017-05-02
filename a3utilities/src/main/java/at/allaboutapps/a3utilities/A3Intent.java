@@ -10,8 +10,8 @@ import android.support.annotation.RequiresPermission;
 import android.text.TextUtils;
 
 /**
- * This class provides some methods to create standard intents for email, phone, web
- * and methods to open matching activities
+ * This class provides some methods to create standard intents for email, phone, web and methods to
+ * open matching activities
  */
 public final class A3Intent {
 
@@ -24,8 +24,8 @@ public final class A3Intent {
    *
    * @param address Email address to send to
    * @param subject Subject of the new email
-   * @param body    Body text of the new email
-   * @param cc      CC address
+   * @param body Body text of the new email
+   * @param cc CC address
    * @return newly created intent
    */
   public static Intent newEmailIntent(String address, String subject, String body, String cc) {
@@ -41,9 +41,9 @@ public final class A3Intent {
    * Creates an intent to send an email
    *
    * @param addresses Array of email addresses to send to
-   * @param subject   Subject of the new email
-   * @param body      Body text of the new email
-   * @param cc        CC address
+   * @param subject Subject of the new email
+   * @param body Body text of the new email
+   * @param cc CC address
    * @return newly created intent
    */
   public static Intent newEmailIntent(String[] addresses, String subject, String body, String cc) {
@@ -68,13 +68,12 @@ public final class A3Intent {
   }
 
   /**
-   * Creates an intent to start a call to phone number
-   * Caution: Needs permission CALL_PHONE
+   * Creates an intent to start a call to phone number Caution: Needs permission CALL_PHONE
    *
    * @param phoneNumber
    * @return
    */
-  @RequiresPermission (Manifest.permission.CALL_PHONE)
+  @RequiresPermission(Manifest.permission.CALL_PHONE)
   public static Intent newCallIntent(String phoneNumber) {
     Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + phoneNumber));
     return intent;
@@ -112,7 +111,8 @@ public final class A3Intent {
    * @param body
    * @param cc
    */
-  public static void openEmailActivity(@NonNull Context context, String address, String subject, String body, String cc) {
+  public static void openEmailActivity(
+      @NonNull Context context, String address, String subject, String body, String cc) {
     Intent intent = newEmailIntent(address, subject, body, cc);
     context.startActivity(Intent.createChooser(intent, ""));
   }
@@ -131,10 +131,10 @@ public final class A3Intent {
   /**
    * Starts a phone call
    *
-   * @param context     Context to start the call
+   * @param context Context to start the call
    * @param phoneNumber number to call
    */
-  @RequiresPermission (Manifest.permission.CALL_PHONE)
+  @RequiresPermission(Manifest.permission.CALL_PHONE)
   public static void startCall(@NonNull Context context, String phoneNumber) {
     Intent intent = newCallIntent(phoneNumber);
     context.startActivity(Intent.createChooser(intent, ""));
@@ -143,9 +143,9 @@ public final class A3Intent {
   /**
    * Creates an intent to open maps with a position preselected
    *
-   * @param latitude  double latitude
+   * @param latitude double latitude
    * @param longitude double longitude
-   * @param caption   String caption to show at google maps for this position
+   * @param caption String caption to show at google maps for this position
    * @return Intent to open maps
    */
   public static Intent newMapsIntent(double latitude, double longitude, @Nullable String caption) {
@@ -164,12 +164,13 @@ public final class A3Intent {
   /**
    * Opens google maps at specific position
    *
-   * @param context   Nonnull context
-   * @param latitude  double latitude
+   * @param context Nonnull context
+   * @param latitude double latitude
    * @param longitude double longitude
-   * @param caption   String caption to show at google maps for this position
+   * @param caption String caption to show at google maps for this position
    */
-  public static void openGoogleMaps(@NonNull Context context, double latitude, double longitude, @Nullable String caption) {
+  public static void openGoogleMaps(
+      @NonNull Context context, double latitude, double longitude, @Nullable String caption) {
     Intent intent = newMapsIntent(latitude, longitude, caption);
     context.startActivity(Intent.createChooser(intent, ""));
   }
@@ -194,7 +195,8 @@ public final class A3Intent {
    * @param latitude
    * @param longitude
    */
-  public static void openGoogleMapsRouting(@NonNull Context context, double latitude, double longitude) {
+  public static void openGoogleMapsRouting(
+      @NonNull Context context, double latitude, double longitude) {
     Intent intent = newMapsRoutingIntent(latitude, longitude);
     context.startActivity(Intent.createChooser(intent, ""));
   }

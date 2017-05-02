@@ -1,7 +1,1 @@
-<manifest package="at.allaboutapps.a3utilities"
-
-          xmlns:android="http://schemas.android.com/apk/res/android">
-
-
-
-</manifest>
+<manifest package="at.allaboutapps.a3utilities"/>

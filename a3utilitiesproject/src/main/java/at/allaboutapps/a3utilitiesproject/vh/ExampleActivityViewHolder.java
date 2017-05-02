@@ -1,8 +1,9 @@
 package at.allaboutapps.a3utilitiesproject.vh;
 
-import at.allaboutapps.a3utilitiesproject.R;
-import android.widget.CheckBox;
 import android.app.Activity;
+import android.widget.CheckBox;
+
+import at.allaboutapps.a3utilitiesproject.R;
 
 public class ExampleActivityViewHolder {
 
@@ -22,5 +23,4 @@ public class ExampleActivityViewHolder {
     cbMarshmallow = (CheckBox) root.findViewById(R.id.cbMarshmallow);
     cbNougat = (CheckBox) root.findViewById(R.id.cbNougat);
   }
-
 }

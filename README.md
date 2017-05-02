@@ -5,12 +5,18 @@
 
 ## This library contains the following utility classes
 
-* A3Assets
-* A3DateFormat
-* A3Device
-* A3Intent
-* A3SoftInput
-* A3TextChangedListener
+* **A3Assets**  
+  Read content from `/assets`
+* **A3DateFormat**  
+  Valid ISO8601 Date Format Constant
+* **A3Device**  
+  Utilities for version checks and pixel sizes.
+* **A3Intent**  
+  Methods to create default intents for email, phone, web, and open the default activities
+* **A3SoftInput**  
+  Show or hide the keyboard
+* **A3TextChangedListener**  
+  Simplified TextWatcher with only `onTextChanged(String)`
 
 ## Including it in your project
 
