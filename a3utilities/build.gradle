@@ -2,42 +2,33 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
+group = 'at.allaboutapps.a3utilities'
+version = '1.0.3'
+
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
 
-    group = 'at.allaboutapps.a3utilities' // Change this to match your package name
-    version = '1.0.2' // Change this to match your version number
+    archivesBaseName = 'a3utilities'
 
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0.2"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 }
 
-
 bintray {
     user = 'allaboutapps'
-    key = '2f1e9e4bad053d9d435627c2b63244e2aa1b247f'
+    // read pw from secure travis.yml
+    key = System.getenv('BINTRAY_KEY')
     pkg {
         repo = 'A3-Android'
         name = 'at.allaboutapps.a3utilities'
 
         version {
-            name = '1.0.2'
-            desc = 'Readme update'
-            vcsTag = '1.0.2'
+            name = project.version
+            desc = ''
+            vcsTag = System.getenv('TRAVIS_TAG')
         }
 
         licenses = ['MIT']
@@ -67,12 +58,10 @@ task generateJavadocsJar(type: Jar) {
 generateJavadocsJar.dependsOn generateJavadocs
 
 
+artifacts {
+    archives generateSourcesJar
+}
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    testCompile 'junit:junit:4.12'
+    compile "com.android.support:recyclerview-v7:$supportLibVersion"
 }

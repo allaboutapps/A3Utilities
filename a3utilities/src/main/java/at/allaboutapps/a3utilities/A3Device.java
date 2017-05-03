@@ -9,9 +9,7 @@ import android.support.annotation.Nullable;
 import android.util.TypedValue;
 import android.view.WindowManager;
 
-/**
- * Created by Chris on 27.01.2015.
- */
+/** Utilities for version checks and pixel sizes. */
 public class A3Device {
 
   public static boolean isMarshmallow() {
@@ -57,6 +55,7 @@ public class A3Device {
   public static boolean isNougat() {
     return Build.VERSION.SDK_INT == Build.VERSION_CODES.N;
   }
+
   public static boolean isNougatOrAbove() {
     return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
   }
@@ -77,16 +76,23 @@ public class A3Device {
       return false;
     }
 
-    ConnectivityManager cm = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-    return cm != null && cm.getActiveNetworkInfo() != null && cm.getActiveNetworkInfo().isConnectedOrConnecting();
+    ConnectivityManager cm =
+        (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+    return cm != null
+        && cm.getActiveNetworkInfo() != null
+        && cm.getActiveNetworkInfo().isConnectedOrConnecting();
   }
 
   public static int getPixelForDp(@NonNull Context ctx, int dp) {
-    return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, ctx.getResources().getDisplayMetrics());
+    return (int)
+        TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_DIP, dp, ctx.getResources().getDisplayMetrics());
   }
 
   public static int getPixelForSp(@NonNull Context ctx, int sp) {
-    return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, ctx.getResources().getDisplayMetrics());
+    return (int)
+        TypedValue.applyDimension(
+            TypedValue.COMPLEX_UNIT_SP, sp, ctx.getResources().getDisplayMetrics());
   }
 
   public static boolean isTablet(@NonNull Context ctx) {
@@ -110,4 +116,3 @@ public class A3Device {
     return getDisplaySize(ctx).y;
   }
 }
-
