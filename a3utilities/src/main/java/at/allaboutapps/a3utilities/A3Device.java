@@ -4,10 +4,10 @@ import android.content.Context;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.TypedValue;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 /** Utilities for version checks and pixel sizes. */
 public class A3Device {

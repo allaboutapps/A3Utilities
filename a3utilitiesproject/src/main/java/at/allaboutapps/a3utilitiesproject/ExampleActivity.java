@@ -1,8 +1,8 @@
 package at.allaboutapps.a3utilitiesproject;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import at.allaboutapps.a3utilities.A3Device;
 import at.allaboutapps.a3utilitiesproject.vh.ExampleActivityViewHolder;
 
