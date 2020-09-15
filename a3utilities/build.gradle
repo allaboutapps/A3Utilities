@@ -6,13 +6,13 @@ group = 'at.allaboutapps.a3utilities'
 version = '1.0.3'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     archivesBaseName = 'a3utilities'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 29
+        targetSdkVersion 30
     }
 }
 
