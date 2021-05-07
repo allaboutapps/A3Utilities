@@ -2,9 +2,9 @@ package at.allaboutapps.a3utilities;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import androidx.annotation.NonNull;
 
 /** Show or hide the keyboard. */
 public class A3SoftInput {

@@ -4,10 +4,11 @@ import android.content.Context;
 import android.graphics.Point;
 import android.net.ConnectivityManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.TypedValue;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresPermission;
 
 /** Utilities for version checks and pixel sizes. */
 public class A3Device {
@@ -70,6 +71,7 @@ public class A3Device {
    * @param ctx the application context
    * @return the current network state, true if online, false if ctx == null or otherwise.
    */
+  @RequiresPermission(android.Manifest.permission.ACCESS_NETWORK_STATE)
   public static boolean isOnline(@Nullable Context ctx) {
 
     if (ctx == null) {

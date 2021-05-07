@@ -6,14 +6,13 @@ group = 'at.allaboutapps.a3utilities'
 version = '1.0.3'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 30
 
     archivesBaseName = 'a3utilities'
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 25
+        targetSdkVersion 30
     }
 }
 
@@ -63,5 +62,5 @@ artifacts {
 }
 
 dependencies {
-    compile "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
 }
